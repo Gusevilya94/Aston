@@ -1,17 +1,33 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        FoodBowl foodBowl = new FoodBowl(10);
+        Cat[] catsArray = {
+                new Cat("Барсик"),
+                new Cat("Вася"),
+                new Cat("Фарис"),
+                new Cat("Мяшка"),
+                new Cat("Лор")
+        };
+        for (Cat value : catsArray) {
+            value.eat(foodBowl, 3);
+            if (value.isSatiety) {
+                System.out.println(value.name + " сыт.");
+            } else {
+                System.out.println(value.name + " голоден.");
+            }
+        }
+        Calculate[] figures = {
+                new Circle(2),
+                new Rectangle(7, 4),
+                new Triangle(8, 5, 4)
+        };
+        for (Calculate value : figures) {
+            value.setFillColor("Красный");
+            value.setBordenColor("Чёрный");
+            System.out.println("Периметр = " + value.calculatePerimeter() + ", площадь = " + value.calculateSquare() + ", цвет фона = " + value.getFillColor() + ", цвет границ = " + value.getBordenColor());
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
         }
     }
 }
